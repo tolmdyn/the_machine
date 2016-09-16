@@ -1,0 +1,32 @@
+##############################	##############################
+WIRING MEGA						WIRING UNO
+##############################	##############################
+	
+PRINTER							PRINTER
+##############################	##############################
+PIN 6	RX	GREEN				PIN 5	RX	GREEN
+PIN 7	TX	YELLOW				PIN 6	TX	YELLOW
+GND			BLACK				GND			BLACK	
+	
+RFID							RFID
+##############################	##############################
+PIN 5	RST		GREEN			PIN 9	RST		GREEN
+PIN 53	SS		WHITE			PIN 10	SS		WHITE
+PIN 51	MOSI	WHITE (SLEEVE)	PIN 11	MOSI	WHITE (SLEEVE)
+PIN 50	MISO	BROWN			PIN 12	MISO	BROWN
+PIN 52	SCK		GREY			PIN 13	SCK		GREY
+3.3V			BLUE			3.3V			BLUE
+GND				WHITE			GND				WHITE
+	
+LCD								LCD
+##############################	##############################
+22 D7	WHITE(BROWN)			A0 D7	WHITE(BROWN)
+23 D6	BROWN					A1 D6	BROWN
+24 D5	WHITE(GREEN)			A2 D5	WHITE(GREEN)
+25 D4	GREEN					A3 D4	GREEN
+26 E	WHITE (GREY)			A4 E	WHITE (GREY)
+27 RS	GREY					A5 RS	GREY
+5V		BLUE					5V		BLUE
+GND		WHITE					GND				WHITE
+	
+##############################	##############################

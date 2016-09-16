@@ -1,0 +1,22 @@
+Generate jobStrings
+###################
+
+Generates header file from a textfile containing the text of the instructions.
+
+-put instructions.txt into jobStrings folder,
+-run "./generateJobStrings.sh"
+-jobStrings.h has now been updated
+-copy jobStrings.h into arduino sketch folder
+
+Generate cardList
+#################
+
+Generates header file from a textfile containing all UUIDs and a csv file containing the order of instructions.
+
+-put uuids.txt into folder (if more UUIDs have been added)
+-put jobList.csv into folder
+-run "./parsecsvtojoblist.sh jobList.csv"
+-jobs.txt has now been updated
+-run "./generate-cardlist.sh"
+-cardList.h has now been updated
+-copy cardList.h into arduino sketch folder
