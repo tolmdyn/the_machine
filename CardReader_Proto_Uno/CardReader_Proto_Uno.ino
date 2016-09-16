@@ -1,8 +1,8 @@
-
 #include <Adafruit_Thermal.h>
 #include <SPI.h>
 #include <MFRC522.h>
 #include <LiquidCrystal.h>
+#include <Wire.h>
 
 #include "SoftwareSerial.h"   // for printer
 
