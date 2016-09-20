@@ -28,3 +28,6 @@ void updateLCD();
 
 void allRand();
 void dumpJob(unsigned int job);
+
+void sendUpdate(unsigned long *newCardID);
+void receiveUpdate(int numbytes);

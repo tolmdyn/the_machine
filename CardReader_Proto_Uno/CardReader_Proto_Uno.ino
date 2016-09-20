@@ -39,6 +39,9 @@ void setup() {
   //Serial1.begin(19200); // Use this instead if using hardware serial
   printer.begin();        // Init printer (same regardless of serial type)
 
+  Wire.begin(8);                // join i2c bus with address #8
+  Wire.onReceive(receiveUpdate); // register event
+  
   // set up the LCD's number of columns and rows:
   lcd.begin(20, 4);
   lcd.setCursor(0,0);
@@ -87,6 +90,7 @@ void loop() {
       updateStatus(STATUS_PRINTING);
       printCurrentJobTicket(&newCardID);
       incrementJobIndex(&newCardID);
+      sendUpdate(&newCardID);
       updateStatus(STATUS_TAKE_TICKET);
       //delay(200);
     }
@@ -197,7 +201,7 @@ int incrementJobIndex(unsigned long *newCardID) {
     if (cards[i].cardID == *newCardID) {
       if (cards[i].currentJobIndex < MAX_JOBS_PER_CARD) {
         cards[i].currentJobIndex++;
-        return 1;
+        return i;
       }
     }
   }
@@ -458,3 +462,25 @@ void printControlTicket(unsigned int new_index){
   printer.println(F("################################")); //0xDB
   printer.println("\n");
 }
+
+void receiveUpdate(int numbytes) { 
+  int card;
+  //incrementJobIndex(&newCardID);
+  while (Wire.available()) { // loop through all but the last
+    card = (int) Wire.read(); // receive byte as a character
+  }
+  cards[card].currentJobIndex++;
+  Serial.print("Recv:");
+  Serial.println(card);
+}
+
+void sendUpdate(unsigned long *newCardID){
+  for (int i = 0; i < MAX_CARDS; i++) {
+    if (cards[i].cardID == *newCardID) {
+      Wire.beginTransmission(8); // transmit to device #8
+      Wire.write((byte)i);              // sends one byte
+      Wire.endTransmission();    // stop transmitting
+    }
+  }
+}
+

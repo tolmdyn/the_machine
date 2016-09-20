@@ -27,10 +27,6 @@
 #define CONTROL_PHASE1_CARD     (unsigned long) 479952602//JOB 1
 #define CONTROL_PHASE2_CARD     (unsigned long) 741102299//JOB 2
 #define CONTROL_PHASE3_CARD     (unsigned long) 741757659//RANDOM JOB (PARTY)
-//0New card :  5C 9B 4B DB Card UID: 5C 9B 4B DB  : 1553681371
-//1New card :  1C 9B 7E DA Card UID: 1C 9B 7E DA  : 479952602
-//2New card :  2C 2C 52 DB Card UID: 2C 2C 52 DB  : 741102299 
-//3New card :  2C 36 52 DB Card UID: 2C 36 52 DB  : 741757659
 
 typedef struct card{
   unsigned long cardID;
